@@ -43,6 +43,7 @@ impl Check for HttpCheck {
                         let resp: Result<reqwest::blocking::Response, reqwest::Error> = client.head(endpoint).send();
                         resp.map(|resp| resp.status().is_success()).unwrap_or(false)
                     }
+                false
             })
             .unwrap_or(true)
     }
